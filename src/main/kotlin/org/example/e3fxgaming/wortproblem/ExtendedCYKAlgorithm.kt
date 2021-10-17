@@ -44,7 +44,7 @@ class InputReader(fileContent: String) {
 }
 
 /**
- * An element of the production system, that can transform a [variable] into an [productionOutput]
+ * An element of the production system, that can transform a [variable] into a [productionOutput]
  */
 data class Rule(val variable: String, val productionOutput: String) {
     override fun toString(): String {
