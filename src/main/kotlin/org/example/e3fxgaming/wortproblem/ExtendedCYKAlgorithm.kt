@@ -1,7 +1,9 @@
 package org.example.e3fxgaming.wortproblem
 
 fun main() {
-    val inputReader = InputReader()
+    val fileContent = InputReader::class.java.getResource("/inputChomskyNF.txt")?.readText() ?: throw Exception("No rules found")
+
+    val inputReader = InputReader(fileContent)
 
     val firstTestWord = "abaaba"
     val secondTestWord = "abbbba"
@@ -20,9 +22,7 @@ fun main() {
 /**
  * Class for reading the Chomsky NF input. Also holds the cache.
  */
-class InputReader {
-    private val fileContent = InputReader::class.java.getResource("/inputChomskyNF.txt")?.readText() ?: throw Exception("No rules found")
-
+class InputReader(fileContent: String) {
     //Maps second part of rule to all possible first parts
     private val rules = fileContent.split("\n")
         .map { it.split("->") }
