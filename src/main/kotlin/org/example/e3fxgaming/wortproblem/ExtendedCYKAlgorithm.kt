@@ -24,7 +24,7 @@ fun main() {
  */
 class InputReader(fileContent: String) {
     //Maps second part of rule to all possible first parts
-    private val rules = fileContent.split("\n")
+    private val rules = fileContent.split(System.getProperty("line.separator"))
         .map { it.split("->") }
         .map {
             Rule(it[0], it[1])
